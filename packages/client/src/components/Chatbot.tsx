@@ -21,7 +21,7 @@ type Message = {
 const Chatbot = () => {
    const [messages, setMessages] = useState<Message[]>([]);
    const [isBotTyping, setIsBotTyping] = useState(false);
-   const lastMsgRef = useRef<HTMLParagraphElement | null>(null);
+   const lastMsgRef = useRef<HTMLDivElement | null>(null);
    const conversationId = useRef(crypto.randomUUID());
    const { register, handleSubmit, reset, formState } = useForm<FormData>();
 
@@ -69,7 +69,7 @@ const Chatbot = () => {
       <div className="flex flex-col h-full">
          <div className="flex flex-col flex-1 gap-3 mb-10 overflow-y-scroll">
             {messages.map((message, index) => (
-               <p
+               <div
                   key={index}
                   onCopy={onCopyMessage}
                   ref={index === messages.length - 1 ? lastMsgRef : null}
@@ -80,7 +80,7 @@ const Chatbot = () => {
                   }`}
                >
                   <ReactMarkdown>{message.content}</ReactMarkdown>
-               </p>
+               </div>
             ))}
             {isBotTyping && (
                <div className="flex self-start gap-1 px-3 py-3 bg-gray-200 rounded-xl">
