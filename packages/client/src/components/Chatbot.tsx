@@ -100,6 +100,7 @@ const Chatbot = () => {
                   required: true,
                   validate: (data) => data.trim().length > 0,
                })}
+               autoFocus
                className="w-full border-0 focus:outline-0 resize-none"
                placeholder="Ask Anything"
                maxLength={1000}
