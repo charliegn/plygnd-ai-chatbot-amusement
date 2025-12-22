@@ -30,7 +30,7 @@ export const chatService = {
          model: 'gpt-4o-mini',
          instructions,
          input: prompt,
-         max_output_tokens: 200,
+         max_output_tokens: 400,
          previous_response_id:
             conversationRepository.getLastResponseId(conversationId),
       });
